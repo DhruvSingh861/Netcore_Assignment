@@ -1,7 +1,5 @@
 import java.util.*;
-import java.util.concurrent.ConcurrentSkipListSet;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.concurrent.*;
 
 public class JavaCollectionImpl {
     public static void main(String[] args) {
@@ -10,6 +8,7 @@ public class JavaCollectionImpl {
         List<Integer> l1=new ArrayList<>();
         List<Integer> l2=new LinkedList<>();
         List<Integer> l3=new Stack<>();
+        //concurrent version of ArrayList
         List<Integer> l4=new CopyOnWriteArrayList<>();
 
         //comparision btw ArrayList and CopyOnWriteArrayList
@@ -28,9 +27,22 @@ public class JavaCollectionImpl {
 
         // Set Interface
         Set<Integer> s1=new HashSet<>();
+        //ordered version of HashSet
         Set<Integer> s2=new LinkedHashSet<>();
         Set<Integer> s3=new TreeSet<>();
+        //concurent version of TreeSet i.e thread-safe
         Set<Integer> s4=new ConcurrentSkipListSet<>();
+        //thread-safe version of set
         Set<Integer> s5=new CopyOnWriteArraySet<>();
+
+        //Map Interface
+        Map<Integer, Integer> m1=new HashMap<>();
+        Map<Integer, Integer> m2=new TreeMap<>();
+        Map<Integer, Integer> m3=new LinkedHashMap<>();
+        //concurrent version of HashMap
+        Map<Integer, Integer> m4=new ConcurrentHashMap<>();
+        //concurrent version of TreeMap
+        Map<Integer, Integer> m5=new ConcurrentSkipListMap<>();
+
     }
 }
