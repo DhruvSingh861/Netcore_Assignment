@@ -16,14 +16,23 @@ public class JavaCollectionImpl {
         for(int i=0;i<1000;i++) l1.add(i);
         for(int i=0;i<1000;i++) l1.get(i);
         long finish = System.nanoTime();
-        System.out.println("ArrayList: "+(finish - start));
+        System.out.println("ArrayList: "+(double)(finish - start)/1000000 +" milliSec.");
 
         start = System.nanoTime();
         for(int i=0;i<1000;i++) l4.add(i);
         for(int i=0;i<1000;i++) l4.get(i);
         finish = System.nanoTime();
-        System.out.println("CopyOnWriteArrayList: "+(finish - start));
+        System.out.println("CopyOnWriteArrayList: "+(double)(finish - start)/1000000+" milliSec.");
 
+
+        ArrayList<Integer> l1s=new ArrayList<>();
+        start = System.nanoTime();
+        synchronized(l1s) {
+            for (int i=0;i<1000;i++) l1s.add(i);
+            for (int i=0;i<1000;i++) l1s.get(i);
+        }
+        finish = System.nanoTime();
+        System.out.println("AL with synchronized block: "+(double)(finish - start)/1000000+" milliSec.");
 
         // Set Interface
         Set<Integer> s1=new HashSet<>();

@@ -8,6 +8,7 @@ public class CallableExample {
         Thread th=new Thread(message);
         th.start();
         try{
+            System.out.println(message.isDone());
             Object o=message.get();
             System.out.println(o);
         }
